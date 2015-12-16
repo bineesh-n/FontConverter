@@ -5,14 +5,14 @@
 
 void display_codes();
 
-int main(int opt) {
-	//opt may useful in future
-	//switch (opt) {
-		FontConverter *fc = new FontConverter(1, "input_pgmFC.txt", "output_pgmFC.txt");
-		fc->convert();
-	//}
-
-	return 0;
+int main() {
+    //opt may useful in future
+    //switch (opt) {
+    std::shared_ptr<FontConverter> fontConverter(new FontConverter(1, "input_pgmFC.txt", "output_pgmFC.txt"));
+    fc->convert();
+    //}
+    
+    return 0;
 }
 
 
