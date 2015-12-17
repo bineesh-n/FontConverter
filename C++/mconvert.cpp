@@ -1,15 +1,16 @@
-#include<string.h>
-#include<fstream.h>
-#include "FontConverter.cpp"
-#include "fexport.h"
+#include<string>
+#include<fstream>
+#include "FontConverter.h"
+//#include "fexport.h"
 
 void display_codes();
 
-int main() {
+int main(int argc, char *argv[]) {
     //opt may useful in future
     //switch (opt) {
-    std::shared_ptr<FontConverter> fontConverter(new FontConverter(1, "input_pgmFC.txt", "output_pgmFC.txt"));
-    fc->convert();
+    FontConverter fontConverter(argv[1]);
+    std::ofstream out("a.txt", std::ios::out);
+    out << fontConverter.convert() << std::endl;
     //}
     
     return 0;
@@ -18,5 +19,5 @@ int main() {
 
 
 void display_codes() {
-	cout << "\t1 - ML-TTIndulekha";
+    std::cout << "\t1 - ML-TTIndulekha";
 } 

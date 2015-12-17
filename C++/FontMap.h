@@ -1,3 +1,5 @@
+#ifndef FONTMAP_H
+#define FONTMAP_H
 /*
 C/C++ font map by Bineesh N
 [0] -> Kartika/Anjali Malayalam
@@ -180,3 +182,5 @@ std::map<int,int> fc20_map = {
 /*
 { "280d4d0d0d20310d", "e2" },
 { "380d4d0d310d4d0d310d", "cc" } */
+
+#endif

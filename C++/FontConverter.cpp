@@ -1,12 +1,14 @@
 #include "FontConverter.h"
+#include "FontMap.h"
 
-void FontConverter::convert() {
+std::string FontConverter::convert() {
     _in.seekg(2, std::ios::beg);
     //check if size not zero
     char c1[2], c2[2], c3[2], c4[2];
     char zd = 0x0d, fd = 0x4d, tw = 0x20;
     int z = 0;
     while (_in.tellg() > 0) {
+        std::cout << _in.tellg() << std::endl;
         if (!_in.read(c1, 2)) { break; }
         int char_ok = 0;
         //checking for 12 bytes match -> 1byte replace
@@ -206,8 +208,10 @@ void FontConverter::convert() {
         
         if (char_ok == 0)
             _out << c1[0] << c1[1];
-    } 
-    close();
+    }
+
+    return _outstr.str();
+    //close();
 }
 
 void FontConverter::checkLRReplacements(char h1) {

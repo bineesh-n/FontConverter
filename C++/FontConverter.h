@@ -1,9 +1,10 @@
+#ifndef FONTCONVERTER_H
+#define FONTCONVERTER_H
+
 #include<fstream>
 #include<iostream>
 #include<memory>
 #include<sstream>
-
-#include "FontMap.h"
 
 class FontConverter {
 public:
@@ -12,7 +13,7 @@ public:
         ,_in(&_strbuf)
         ,_out(&_outstr)
     {}
-    void convert();
+    std::string convert();
     void checkLRReplacements(char);
 private:
     int indexOnArray = 1;
@@ -22,3 +23,5 @@ private:
     std::ostream   _out;
     void close();
 };
+
+#endif
