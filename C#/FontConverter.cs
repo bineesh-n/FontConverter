@@ -29,7 +29,7 @@ class FontConverter : Form
     private Label l2;
 
     [DllImport("FontMap.dll")]
-    public static extern int main(int n);
+    public static extern string convert(string str);
 
     [STAThread]
     private static void Main()
@@ -181,20 +181,14 @@ class FontConverter : Form
     private void convert_Click(Object sender, EventArgs e)
     {
         output.Text = "";
-        File.WriteAllText("input_pgmFC.txt", input.Text + " ", Encoding.Unicode);
+        string str = input.Text + " ", outStr = "";
         try
         {
-            if (FontConverter.main(0) == 0)
-            {
-                byte[] b = File.ReadAllBytes("output_pgmFC.txt");
-                foreach (char i in b)
-                {
-                    output.Text += i;
-                }
-            }
+            outStr = FontConverter.convert(str);
         }
         catch (AccessViolationException ex) { System.Console.WriteLine(ex.Message); }
-        
+
+        output.Text = outStr;
     }
 
 }

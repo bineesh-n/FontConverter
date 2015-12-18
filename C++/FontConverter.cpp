@@ -2,7 +2,7 @@
 #include "FontMap.h"
 
 std::string FontConverter::convert() {
-    _in.seekg(2, std::ios::beg);
+    //_in.seekg(2, std::ios::beg);
     //check if size not zero
     char c1[2], c2[2], c3[2], c4[2];
     char zd = 0x0d, fd = 0x4d, tw = 0x20;
